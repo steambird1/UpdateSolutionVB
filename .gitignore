@@ -261,3 +261,4 @@ __pycache__/
 *.pyc
 /TestExtract.txt
 /verifier.txt
+/ExtractService/Resources
