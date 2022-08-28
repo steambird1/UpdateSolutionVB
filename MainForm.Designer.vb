@@ -56,6 +56,7 @@ Partial Class MainForm
         '
         'NetWorker
         '
+        Me.NetWorker.WorkerReportsProgress = True
         '
         'MainForm
         '

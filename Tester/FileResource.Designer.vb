@@ -25,7 +25,7 @@ Namespace My.Resources
     <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "15.0.0.0"),  _
      Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
      Global.System.Runtime.CompilerServices.CompilerGeneratedAttribute()>  _
-    Friend Class Settings
+    Friend Class FileResource
         
         Private Shared resourceMan As Global.System.Resources.ResourceManager
         
@@ -43,7 +43,7 @@ Namespace My.Resources
         Friend Shared ReadOnly Property ResourceManager() As Global.System.Resources.ResourceManager
             Get
                 If Object.ReferenceEquals(resourceMan, Nothing) Then
-                    Dim temp As Global.System.Resources.ResourceManager = New Global.System.Resources.ResourceManager("UpdateSolution.Settings", GetType(Settings).Assembly)
+                    Dim temp As Global.System.Resources.ResourceManager = New Global.System.Resources.ResourceManager("Tester.FileResource", GetType(FileResource).Assembly)
                     resourceMan = temp
                 End If
                 Return resourceMan
@@ -65,56 +65,12 @@ Namespace My.Resources
         End Property
         
         '''<summary>
-        '''  查找类似 AppUpdater 的本地化字符串。
+        '''  查找 System.Byte[] 类型的本地化资源。
         '''</summary>
-        Friend Shared ReadOnly Property ApplicationName() As String
+        Friend Shared ReadOnly Property TestExtract() As Byte()
             Get
-                Return ResourceManager.GetString("ApplicationName", resourceCulture)
-            End Get
-        End Property
-        
-        '''<summary>
-        '''  查找类似 https://steambird1.github.io/app/update/test/Tester.exe 的本地化字符串。
-        '''</summary>
-        Friend Shared ReadOnly Property DownloadPath() As String
-            Get
-                Return ResourceManager.GetString("DownloadPath", resourceCulture)
-            End Get
-        End Property
-        
-        '''<summary>
-        '''  查找类似 True 的本地化字符串。
-        '''</summary>
-        Friend Shared ReadOnly Property ExecuteAfterDownload() As String
-            Get
-                Return ResourceManager.GetString("ExecuteAfterDownload", resourceCulture)
-            End Get
-        End Property
-        
-        '''<summary>
-        '''  查找类似 0 的本地化字符串。
-        '''</summary>
-        Friend Shared ReadOnly Property ExecutionDisplay() As String
-            Get
-                Return ResourceManager.GetString("ExecutionDisplay", resourceCulture)
-            End Get
-        End Property
-        
-        '''<summary>
-        '''  查找类似 .exe 的本地化字符串。
-        '''</summary>
-        Friend Shared ReadOnly Property TargetFileKind() As String
-            Get
-                Return ResourceManager.GetString("TargetFileKind", resourceCulture)
-            End Get
-        End Property
-        
-        '''<summary>
-        '''  查找类似 https://steambird1.github.io/app/update/test/verifier.txt 的本地化字符串。
-        '''</summary>
-        Friend Shared ReadOnly Property VerifierPath() As String
-            Get
-                Return ResourceManager.GetString("VerifierPath", resourceCulture)
+                Dim obj As Object = ResourceManager.GetObject("TestExtract", resourceCulture)
+                Return CType(obj,Byte())
             End Get
         End Property
     End Class

@@ -1,0 +1,2 @@
+Hello world!
+This file is used to test whether the file can be extracted correctly.

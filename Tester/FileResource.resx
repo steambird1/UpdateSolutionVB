@@ -117,27 +117,8 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="ApplicationName" xml:space="preserve">
-    <value>AppUpdater</value>
-    <comment>Specify your application name</comment>
-  </data>
-  <data name="DownloadPath" xml:space="preserve">
-    <value>https://steambird1.github.io/app/update/test/Tester.exe</value>
-    <comment>Specify where the program is</comment>
-  </data>
-  <data name="ExecuteAfterDownload" xml:space="preserve">
-    <value>True</value>
-    <comment>True / False</comment>
-  </data>
-  <data name="ExecutionDisplay" xml:space="preserve">
-    <value>0</value>
-    <comment>Specity how the application executes program</comment>
-  </data>
-  <data name="TargetFileKind" xml:space="preserve">
-    <value>.exe</value>
-  </data>
-  <data name="VerifierPath" xml:space="preserve">
-    <value>https://steambird1.github.io/app/update/test/verifier.txt</value>
-    <comment>Specify where the verifier is</comment>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="TestExtract" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\TestExtract.txt;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
 </root>
