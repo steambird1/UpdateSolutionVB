@@ -108,5 +108,14 @@ Namespace My.Resources
                 Return ResourceManager.GetString("UpdateTitle", resourceCulture)
             End Get
         End Property
+        
+        '''<summary>
+        '''  查找类似 Your application is up to date. 的本地化字符串。
+        '''</summary>
+        Friend Shared ReadOnly Property UpToDatePrompt() As String
+            Get
+                Return ResourceManager.GetString("UpToDatePrompt", resourceCulture)
+            End Get
+        End Property
     End Class
 End Namespace

@@ -18,19 +18,22 @@ Public Class MainForm
             End If
             My.Computer.Network.DownloadFile(My.Resources.Settings.VerifierPath, FlagTarget)
             Dim sr As StreamReader = My.Computer.FileSystem.OpenTextFileReader(FlagTarget)
-            Dim cur As String = sr.ReadToEnd()
+            Dim cur As String = sr.ReadLine()   ' Only first one is valid.
             sr.Close()
             ' Verifier must be text.
             Dim reg As RegistryKey = Application.UserAppDataRegistry
             Dim reges As Object = reg.GetValue("LastName")
             If IsNothing(reges) OrElse (New String(reges) <> cur) Then
                 ' Download latest update, and execute it
+                reg.SetValue("LastName", cur)
                 NetWorker.ReportProgress(50)
                 My.Computer.Network.DownloadFile(My.Resources.Settings.DownloadPath, ApplicationTarget)
                 If My.Resources.Settings.ExecuteAfterDownload = "True" Then
                     Shell(ApplicationTarget, Val(My.Resources.Settings.ExecutionDisplay), True)
                 End If
                 End
+            Else
+                NetWorker.ReportProgress(90)
             End If
         Catch ex As Exception
             MsgBox(My.Resources.Languages.FailPrompt & vbCrLf & ex.Message & vbCrLf & ex.StackTrace, MsgBoxStyle.Critical, My.Resources.Languages.FailTitle)
@@ -47,8 +50,15 @@ Public Class MainForm
     End Sub
 
     Private Sub NetWorker_ProgressChanged(sender As Object, e As ProgressChangedEventArgs) Handles NetWorker.ProgressChanged
-        If e.ProgressPercentage >= 50 Then
+        If e.ProgressPercentage >= 90 Then
+            UpdatePrompt.Text = My.Resources.Languages.UpToDatePrompt
+            DelayQuit.Enabled = True
+        ElseIf e.ProgressPercentage >= 50 Then
             UpdatePrompt.Text = My.Resources.Languages.UpdatePrompt
         End If
+    End Sub
+
+    Private Sub DelayQuit_Tick(sender As Object, e As EventArgs) Handles DelayQuit.Tick
+        End
     End Sub
 End Class

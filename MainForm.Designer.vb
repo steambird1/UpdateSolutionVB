@@ -22,10 +22,12 @@ Partial Class MainForm
     '不要使用代码编辑器修改它。
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Me.UpdateTitle = New System.Windows.Forms.Label()
         Me.UpdatePrompt = New System.Windows.Forms.Label()
         Me.UpdateProgress = New System.Windows.Forms.ProgressBar()
         Me.NetWorker = New System.ComponentModel.BackgroundWorker()
+        Me.DelayQuit = New System.Windows.Forms.Timer(Me.components)
         Me.SuspendLayout()
         '
         'UpdateTitle
@@ -58,6 +60,10 @@ Partial Class MainForm
         '
         Me.NetWorker.WorkerReportsProgress = True
         '
+        'DelayQuit
+        '
+        Me.DelayQuit.Interval = 1000
+        '
         'MainForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 15.0!)
@@ -80,4 +86,5 @@ Partial Class MainForm
     Friend WithEvents UpdatePrompt As Label
     Friend WithEvents UpdateProgress As ProgressBar
     Friend WithEvents NetWorker As System.ComponentModel.BackgroundWorker
+    Friend WithEvents DelayQuit As Timer
 End Class
