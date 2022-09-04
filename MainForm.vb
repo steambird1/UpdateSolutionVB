@@ -22,10 +22,11 @@ Public Class MainForm
             sr.Close()
             ' Verifier must be text.
             Dim reg As RegistryKey = Application.UserAppDataRegistry
-            Dim reges As Object = reg.GetValue("LastName")
+            Dim LastNamePosition As String = "LastName" & My.Resources.Settings.ApplicationName
+            Dim reges As Object = reg.GetValue(LastNamePosition)
             If IsNothing(reges) OrElse (New String(reges) <> cur) Then
                 ' Download latest update, and execute it
-                reg.SetValue("LastName", cur)
+                reg.SetValue(LastNamePosition, cur)
                 NetWorker.ReportProgress(50)
                 My.Computer.Network.DownloadFile(My.Resources.Settings.DownloadPath, ApplicationTarget)
                 If My.Resources.Settings.ExecuteAfterDownload = "True" Then
